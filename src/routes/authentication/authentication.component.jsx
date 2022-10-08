@@ -1,4 +1,7 @@
+import SignInForm from "../../Components/sign-in-form/sign-in-form.component";
 import SignUpForm from "../../Components/sign-up-form/sign-up-form.component";
+import "./authentication.styles.scss";
+
 import { useEffect } from "react";
 import { getRedirectResult } from "firebase/auth";
 import {
@@ -8,7 +11,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
-const SignIn = () => {
+const Authentication = () => {
   // eslint-disable-next-line no-lone-blocks
   {
     /*useEffect(() => {
@@ -21,17 +24,11 @@ const SignIn = () => {
   }, []);*/
   }
 
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-  };
-
   return (
-    <div>
-      <h1>Sign In</h1>
-      <button onClick={logGoogleUser}>Sign In With Goolgle</button>
+    <div className="authentication-container">
+      <SignInForm />
       <SignUpForm />
     </div>
   );
 };
-export default SignIn;
+export default Authentication;
