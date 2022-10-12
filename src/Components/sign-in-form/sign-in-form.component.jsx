@@ -1,5 +1,6 @@
-import { async } from "@firebase/util";
 import { useState } from "react";
+//import { UserContext } from "../../contexts/user.context";
+
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
@@ -23,8 +24,7 @@ const SignInForm = () => {
   const { email, password } = formFields;
 
   const googleSignIn = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const resetFormFields = () => {
@@ -34,11 +34,7 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      console.log(response);
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -86,7 +82,7 @@ const SignInForm = () => {
         <div className="buttons-container">
           <Button type="submit"> Sign In</Button>
           <Button buttonType="google" onClick={googleSignIn}>
-            Google signIn
+            Google Sign In
           </Button>
         </div>
       </form>
