@@ -2,15 +2,6 @@ import SignInForm from "../../Components/sign-in-form/sign-in-form.component";
 import SignUpForm from "../../Components/sign-up-form/sign-up-form.component";
 import "./authentication.styles.scss";
 
-import { useEffect } from "react";
-import { getRedirectResult } from "firebase/auth";
-import {
-  auth,
-  signInWithGooglePopup,
-  signInWithGoogleRedirect,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
-
 const Authentication = () => {
   // eslint-disable-next-line no-lone-blocks
   {

@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Fragment, useContext } from "react";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
@@ -10,7 +10,8 @@ import { CartContext } from "../../contexts/cart.context";
 import CartIcon from "../../Components/cart-icon/cart-icon-component";
 import CartDropdown from "../../Components/cart-dropdown/cart-dropdown.component";
 
-import NavigationContainer from "./navigation.styles";
+import { NavigationContainer, NavLinks } from "./navigation.styles";
+import { LogoContainer, NavLink } from "./navigation.styles";
 
 const Navigation = () => {
   const { isCartOpen } = useContext(CartContext);
@@ -20,27 +21,21 @@ const Navigation = () => {
   return (
     <Fragment>
       <NavigationContainer>
-        {/*<Link className="logo-container" to="/">
+        <LogoContainer to="/">
           <div className="logo">
             <Logo />
           </div>
-        </Link>
-        <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
-            Shop
-          </Link>
+        </LogoContainer>
+        <NavLinks>
+          <NavLink to="/shop">Shop</NavLink>
           {currentUser ? (
-            <Link className="nav-link" onClick={signOutUser}>
-              Sign Out
-            </Link>
+            <NavLink onClick={signOutUser}>Sign Out</NavLink>
           ) : (
-            <Link className="nav-link" to="/auth">
-              Sign In
-            </Link>
+            <NavLink to="/auth">Sign In</NavLink>
           )}
           <CartIcon />
-        </div>
-          {isCartOpen && <CartDropdown />}*/}
+        </NavLinks>
+        {isCartOpen && <CartDropdown />}
       </NavigationContainer>
 
       <Outlet />
