@@ -10,7 +10,7 @@ import { CartContext } from "../../contexts/cart.context";
 import CartIcon from "../../Components/cart-icon/cart-icon-component";
 import CartDropdown from "../../Components/cart-dropdown/cart-dropdown.component";
 
-import "./navigation.styles.scss";
+import NavigationContainer from "./navigation.styles";
 
 const Navigation = () => {
   const { isCartOpen } = useContext(CartContext);
@@ -19,8 +19,8 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+      <NavigationContainer>
+        {/*<Link className="logo-container" to="/">
           <div className="logo">
             <Logo />
           </div>
@@ -40,8 +40,8 @@ const Navigation = () => {
           )}
           <CartIcon />
         </div>
-        {isCartOpen && <CartDropdown />}
-      </div>
+          {isCartOpen && <CartDropdown />}*/}
+      </NavigationContainer>
 
       <Outlet />
     </Fragment>
