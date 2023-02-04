@@ -80,11 +80,11 @@ const SignInForm = () => {
 
         <div className="buttons-container">
           <Button type="submit"> Sign In</Button>
-          <Button buttonType="google" onClick={googleSignIn}>
-            Google Sign In
-          </Button>
         </div>
       </form>
+      <Button buttonType="google" onClick={googleSignIn}>
+        Google Sign In
+      </Button>
     </div>
   );
 };
